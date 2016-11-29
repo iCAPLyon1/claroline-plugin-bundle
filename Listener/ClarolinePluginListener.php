@@ -45,22 +45,6 @@ class ClarolinePluginListener extends ContainerAware
     //-------------------------------
 
     /**
-     * @DI\Observe("inject_javascript_layout")
-     *
-     * @param InjectJavascriptEvent $event
-     * @return string
-     */
-    public function onInjectJs(InjectJavascriptEvent $event)
-    {
-        $content = $this->templating->render(
-            'InwicastClarolinePluginBundle:Inwicast:javascript_layout.html.twig',
-            array()
-        );
-
-        $event->addContent($content);
-    }
-
-    /**
      * @DI\InjectParams({
      *      "container"             = @DI\Inject("service_container")
      * })
