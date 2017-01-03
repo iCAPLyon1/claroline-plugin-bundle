@@ -37,11 +37,17 @@ class MediacenterUserRepository
         $qb
             ->select('usr.username, usr.token')
             ->from('mdcr_inwicast_user_tokens', 'usr')
-            ->where('usr.username = :username')
-            ->andWhere('usr.tokenapp = :platform')
-            ->setParameter("username", $user->getUsername())
-            ->setParameter("platform", $this->platformName);
-
+            // Not yet implemented in inwicast the platform choice so test also email
+            ->where($qb->expr()->orX(
+                $qb->expr()->andX(
+                    $qb->expr()->eq('usr.username', '?'),
+                    $qb->expr()->eq('usr.tokenapp', '?')
+                ),
+                $qb->expr()->eq('usr.email', '?')
+            ))
+            ->setParameter(0, $user->getUsername())
+            ->setParameter(1, $this->platformName)
+            ->setParameter(2, $user->getMail());
         $result = $qb->execute()->fetch();
         if (!$result) {
             //$qb_insert = $connection->createQueryBuilder();
