@@ -20,7 +20,6 @@
         "inwicast/claroline-plugin-bundle": "*"
     },
     "require": {
-        "php": ">=5.4.1",
-        "claroline/distribution": ">=8.0"
+        "php": ">=5.4.1"
     }
 }
