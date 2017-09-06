@@ -1,5 +1,14 @@
 # Inwicast - Claroline Plugin Bundle
 
+
+WARNING
+-------
+
+**DEVELOPMENT HAS MOVED TO [claroline/Distribution](http://github.com/claroline/Distribution). THIS REPOSITORY IS NO LONGER MAINTAINED.**
+
+--------
+
+
 Plugin for Inwicast Mediacenter integration in [Claroline Connect](https://github.com/claroline/Claroline/) educational platform.
 
 ## Project setup
